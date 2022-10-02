@@ -17,7 +17,7 @@ let dataTexture = new THREE.DataTexture()
 // gui
 const gui = new GUI();
 // isMobile
-const isMobile = navigator.userAgentData.mobile;
+const isMobile = navigator.userAgentData.mobile ?? false;
 
 // camera
 const sizes = {
@@ -36,7 +36,7 @@ const mouse = {
 };
 
 const settings = {
-    grid: 15,
+    grid: 20,
     mouse: 0.13,
     strength: 0.15,
     relaxation: 0.9,
@@ -132,6 +132,7 @@ const updateDataTexture = () => {
 
           let power = maxDist / Math.sqrt(distance);
           power = clamp(power, 0, 10)
+
           // if(distance <settings.grid/32) power = 1;
           // power = 1;
 
@@ -210,6 +211,7 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     
     keepImageAspect();
+    
     if(!isMobile) {
         regenerateGrid();
     }
