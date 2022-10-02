@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import GUI from "lil-gui";
 import vertex from './shader/vertex.glsl'; 
 import fragment from './shader/fragment.glsl'; 
-
+import backgroundImage from '../static/gerome.jpg';
 
 // canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -145,7 +145,7 @@ const updateDataTexture = () => {
     dataTexture.needsUpdate = true
 }
 
-const imgTexture = new THREE.TextureLoader().load('./static/gerome.jpg');
+const imgTexture = new THREE.TextureLoader().load(backgroundImage);
 imgTexture.needsUpdate = true;
 
 // ================
