@@ -17,7 +17,7 @@ let dataTexture = new THREE.DataTexture()
 // gui
 const gui = new GUI();
 // isMobile
-const isMobile = navigator.userAgentData.mobile ?? false;
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 // camera
 const sizes = {
@@ -211,10 +211,10 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     
     keepImageAspect();
-    regenerateGrid();
-    // if(!isMobile) {
-    //     regenerateGrid();
-    // }
+    
+    if(!isMobile) {
+        regenerateGrid();
+    }
 })
 
 const frustumSize = 1;
