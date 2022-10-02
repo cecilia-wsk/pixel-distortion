@@ -171,6 +171,18 @@ const material = new THREE.ShaderMaterial({
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
+window.addEventListener('touchmove', (event) => {
+    var touch = event.touches[0];
+    mouse.x = touch.clientX / sizes.width;
+    mouse.y = touch.clientY / sizes.height;
+
+    mouse.vX = mouse.x - mouse.prevX;
+    mouse.vY = mouse.y - mouse.prevY;
+
+    mouse.prevX = mouse.x
+    mouse.prevY = mouse.y;
+})
+
 window.addEventListener('mousemove', (event) => {
     mouse.x = event.clientX / sizes.width;
     mouse.y = event.clientY / sizes.height;
