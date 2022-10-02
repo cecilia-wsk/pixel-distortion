@@ -12,10 +12,12 @@ const scene = new THREE.Scene()
 scene.background = new THREE.Color('#141718')
 // red cube
 const geometry = new THREE.PlaneGeometry(1,1,1,1)
-
+// grid data texture
 let dataTexture = new THREE.DataTexture()
-
+// gui
 const gui = new GUI();
+// isMobile
+const isMobile = navigator.userAgentData.mobile;
 
 // camera
 const sizes = {
@@ -208,7 +210,9 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     
     keepImageAspect();
-    regenerateGrid();
+    if(!isMobile) {
+        regenerateGrid();
+    }
 })
 
 const frustumSize = 1;
