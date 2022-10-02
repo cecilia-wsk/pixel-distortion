@@ -211,10 +211,10 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     
     keepImageAspect();
-    
-    if(!isMobile) {
-        regenerateGrid();
-    }
+    regenerateGrid();
+    // if(!isMobile) {
+    //     regenerateGrid();
+    // }
 })
 
 const frustumSize = 1;
