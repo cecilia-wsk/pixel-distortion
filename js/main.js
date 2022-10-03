@@ -203,7 +203,6 @@ window.addEventListener('resize', () => {
     sizes.height = window.innerHeight
 
     // Update camera
-    camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
 
     // Update renderer
